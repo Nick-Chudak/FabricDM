@@ -1,0 +1,291 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "e87ea376-7fce-873e-401f-9971dcec73e1",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "parameters": {
+            "execution_id": {
+              "value": {
+                "value": "@json(activity('Trigger the load_copy1').output.result.exitValue)[0].ExecutionId",
+                "type": "Expression"
+              },
+              "type": "string"
+            },
+            "execution_status": {
+              "value": {
+                "value": "@json(activity('Trigger the load_copy1').output.result.exitValue)[0].Status",
+                "type": "Expression"
+              },
+              "type": "string"
+            },
+            "dm_cycle": {
+              "value": {
+                "value": "@pipeline().parameters.dm_cycle",
+                "type": "Expression"
+              },
+              "type": "int"
+            },
+            "entity_name": {
+              "value": {
+                "value": "@pipeline().parameters.entity_name",
+                "type": "Expression"
+              },
+              "type": "string"
+            }
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Collect load statistics",
+        "dependsOn": [
+          {
+            "activity": "Trigger the load_copy1",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "2b1767e4-ec99-4d71-85b6-d6a6d1d198aa",
+          "workspaceId": "27e9c377-c28b-475c-b484-fb4f52ba54d1"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Log ADO results",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": [
+          {
+            "activity": "Collect load statistics",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "IfCondition",
+        "typeProperties": {
+          "expression": {
+            "value": "@not(equals(pipeline().parameters.files_to_ingest, ''))",
+            "type": "Expression"
+          },
+          "ifTrueActivities": [
+            {
+              "type": "InvokePipeline",
+              "typeProperties": {
+                "parameters": {
+                  "dm_cycle": {
+                    "value": "@pipeline().parameters.dm_cycle",
+                    "type": "Expression"
+                  },
+                  "entity_name": {
+                    "value": "@pipeline().parameters.entity_name",
+                    "type": "Expression"
+                  },
+                  "files_to_ingest": {
+                    "value": "@pipeline().parameters.files_to_ingest",
+                    "type": "Expression"
+                  }
+                },
+                "waitOnCompletion": true,
+                "workspaceId": "27e9c377-c28b-475c-b484-fb4f52ba54d1",
+                "pipelineId": "767fc50b-7035-4bb7-a0b7-abfe2e3f143b",
+                "operationType": "InvokeFabricPipeline"
+              },
+              "externalReferences": {
+                "connection": "55e9f8a2-b170-480d-b4a4-6a284563b2ee"
+              },
+              "policy": {
+                "timeout": "0.12:00:00",
+                "retry": 0,
+                "retryIntervalInSeconds": 30,
+                "secureInput": false,
+                "secureOutput": false
+              },
+              "name": "Invoke Ingestion",
+              "dependsOn": []
+            }
+          ],
+          "ifFalseActivities": []
+        },
+        "name": "Is ingestion variable not empty",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": []
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "f6675df7-a2e4-4415-a181-41176324014b",
+          "workspaceId": "27e9c377-c28b-475c-b484-fb4f52ba54d1",
+          "parameters": {
+            "entity_name": {
+              "value": {
+                "value": "@pipeline().parameters.entity_name",
+                "type": "Expression"
+              },
+              "type": "string"
+            },
+            "dm_cycle": {
+              "value": {
+                "value": "@pipeline().parameters.dm_cycle",
+                "type": "Expression"
+              },
+              "type": "int"
+            }
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Tranform dataset_copy1",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": [
+          {
+            "activity": "Is ingestion variable not empty",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "2be7faaf-95f7-48bf-8690-a21a0f7e4a30",
+          "workspaceId": "27e9c377-c28b-475c-b484-fb4f52ba54d1",
+          "parameters": {
+            "entity_name": {
+              "value": {
+                "value": "@pipeline().parameters.entity_name",
+                "type": "Expression"
+              },
+              "type": "string"
+            },
+            "dm_cycle": {
+              "value": {
+                "value": "@pipeline().parameters.dm_cycle",
+                "type": "Expression"
+              },
+              "type": "int"
+            },
+            "legal_entity_id": {
+              "value": {
+                "value": "@pipeline().parameters.legal_entity_id",
+                "type": "Expression"
+              },
+              "type": "string"
+            }
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Build Package_copy1",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": [
+          {
+            "activity": "Tranform dataset_copy1",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "069d2396-5bb1-81f6-432c-a852d617dbce",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "parameters": {
+            "dm_cycle": {
+              "value": {
+                "value": "@pipeline().parameters.dm_cycle",
+                "type": "Expression"
+              },
+              "type": "int"
+            },
+            "entity_name": {
+              "value": {
+                "value": "@pipeline().parameters.entity_name",
+                "type": "Expression"
+              },
+              "type": "string"
+            },
+            "legal_entity_id": {
+              "value": {
+                "value": "@pipeline().parameters.legal_entity_id",
+                "type": "Expression"
+              },
+              "type": "string"
+            }
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Trigger the load_copy1",
+        "dependsOn": [
+          {
+            "activity": "Build Package_copy1",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      }
+    ],
+    "parameters": {
+      "entity_name": {
+        "type": "string",
+        "defaultValue": "Project contract"
+      },
+      "dm_cycle": {
+        "type": "string",
+        "defaultValue": "0"
+      },
+      "files_to_ingest": {
+        "type": "string"
+      },
+      "ado_workitem_id": {
+        "type": "string",
+        "defaultValue": "3"
+      },
+      "legal_entity_id": {
+        "type": "string",
+        "defaultValue": "USMF"
+      }
+    }
+  }
+}

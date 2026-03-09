@@ -1,0 +1,51 @@
+{
+  "config": "{\"version\":\"5.69\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY25SU12\",\"type\":2,\"version\":{\"visual\":\"2.5.0\",\"report\":\"3.1.0\",\"page\":\"2.3.0\"}}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":0,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY25SU12",
+            "path": "BaseThemes/CY25SU12.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "43c10e3dbc1e8747af10",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"3896e61b8323d99392f1\",\"layouts\":[{\"id\":0,\"position\":{\"x\":10.32258064516129,\"y\":0,\"z\":0,\"width\":533.6774193548387,\"height\":323.0967741935484,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"executionjobdetails.EntityName\"},{\"queryRef\":\"executionjobdetails.DefinitionGroupId\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"e\",\"Entity\":\"executionjobdetails\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"EntityName\"},\"Name\":\"executionjobdetails.EntityName\",\"NativeReferenceName\":\"EntityName\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"DefinitionGroupId\"},\"Name\":\"executionjobdetails.DefinitionGroupId\",\"NativeReferenceName\":\"DefinitionGroupId\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 323.10,
+          "width": 533.68,
+          "x": 10.32,
+          "y": 0.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"ed912fc51ed32b693692\",\"layouts\":[{\"id\":0,\"position\":{\"x\":10,\"y\":333,\"width\":534,\"height\":323,\"z\":1000,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"barChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(executionjobdetails.StagingRecordsCreatedCount)\"},{\"queryRef\":\"Sum(executionjobdetails.StagingRecordsToBeProcessedCount)\"},{\"queryRef\":\"Sum(executionjobdetails.TargetRecordsCreatedCount)\"},{\"queryRef\":\"Sum(executionjobdetails.TargetRecordsUpdatedCount)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"e\",\"Entity\":\"executionjobdetails\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"StagingRecordsCreatedCount\"}},\"Function\":0},\"Name\":\"Sum(executionjobdetails.StagingRecordsCreatedCount)\",\"NativeReferenceName\":\"Sum of StagingRecordsCreatedCount\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"StagingRecordsToBeProcessedCount\"}},\"Function\":0},\"Name\":\"Sum(executionjobdetails.StagingRecordsToBeProcessedCount)\",\"NativeReferenceName\":\"Sum of StagingRecordsToBeProcessedCount\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"TargetRecordsCreatedCount\"}},\"Function\":0},\"Name\":\"Sum(executionjobdetails.TargetRecordsCreatedCount)\",\"NativeReferenceName\":\"Sum of TargetRecordsCreatedCount\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"TargetRecordsUpdatedCount\"}},\"Function\":0},\"Name\":\"Sum(executionjobdetails.TargetRecordsUpdatedCount)\",\"NativeReferenceName\":\"Sum of TargetRecordsUpdatedCount\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"StagingRecordsCreatedCount\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 323.00,
+          "width": 534.00,
+          "x": 10.00,
+          "y": 333.00,
+          "z": 1000.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}
