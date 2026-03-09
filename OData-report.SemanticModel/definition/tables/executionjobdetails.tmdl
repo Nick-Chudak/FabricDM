@@ -1,0 +1,299 @@
+table executionjobdetails
+	lineageTag: 2ada83dd-608f-418b-ad61-1659eef10e93
+	sourceLineageTag: [dbo].[executionjobdetails]
+
+	column '@odata.etag'
+		dataType: string
+		lineageTag: 268c2aeb-11f1-4cd5-a0c9-655eabd87c97
+		sourceLineageTag: @odata.etag
+		summarizeBy: none
+		sourceColumn: @odata.etag
+
+		annotation SummarizationSetBy = Automatic
+
+	column DefinitionGroupId
+		dataType: string
+		lineageTag: 0020bdd2-4bc3-4148-82ea-6b302546e999
+		sourceLineageTag: DefinitionGroupId
+		summarizeBy: none
+		sourceColumn: DefinitionGroupId
+
+		annotation SummarizationSetBy = Automatic
+
+	column JobId
+		dataType: string
+		lineageTag: e75b6f2d-781f-45de-9a8b-fe3e6a9a5160
+		sourceLineageTag: JobId
+		summarizeBy: none
+		sourceColumn: JobId
+
+		annotation SummarizationSetBy = Automatic
+
+	column EntityName
+		dataType: string
+		lineageTag: f4d817f9-65f4-4de0-9dc8-4ca6d24f04da
+		sourceLineageTag: EntityName
+		summarizeBy: none
+		sourceColumn: EntityName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LevelInExecutionUnit
+		dataType: int64
+		formatString: 0
+		lineageTag: 5b6fda84-305b-403e-8960-d0cb537de74d
+		sourceLineageTag: LevelInExecutionUnit
+		summarizeBy: sum
+		sourceColumn: LevelInExecutionUnit
+
+		annotation SummarizationSetBy = Automatic
+
+	column StagingStatus
+		dataType: string
+		lineageTag: 45b9eb68-2e83-4327-931f-6f08594b0dc3
+		sourceLineageTag: StagingStatus
+		summarizeBy: none
+		sourceColumn: StagingStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column RunBusinessValidation
+		dataType: string
+		lineageTag: 9a2f9062-5017-4537-b350-7401d8e6e533
+		sourceLineageTag: RunBusinessValidation
+		summarizeBy: none
+		sourceColumn: RunBusinessValidation
+
+		annotation SummarizationSetBy = Automatic
+
+	column FailExecutionUnitOnError
+		dataType: string
+		lineageTag: f9602f9a-bf60-470a-99dd-2ffe89c2777b
+		sourceLineageTag: FailExecutionUnitOnError
+		summarizeBy: none
+		sourceColumn: FailExecutionUnitOnError
+
+		annotation SummarizationSetBy = Automatic
+
+	column FilePath
+		dataType: string
+		lineageTag: aeb837cd-1c5e-4304-9824-ceb6cdea8039
+		sourceLineageTag: FilePath
+		summarizeBy: none
+		sourceColumn: FilePath
+
+		annotation SummarizationSetBy = Automatic
+
+	column RunBusinessLogic
+		dataType: string
+		lineageTag: 1819b877-c5ea-4991-8b5b-fbb0e7d842b0
+		sourceLineageTag: RunBusinessLogic
+		summarizeBy: none
+		sourceColumn: RunBusinessLogic
+
+		annotation SummarizationSetBy = Automatic
+
+	column TargetStartDateTime
+		dataType: string
+		lineageTag: 701f93d8-bf76-491d-89db-e0e8d7886e9c
+		sourceLineageTag: TargetStartDateTime
+		summarizeBy: none
+		sourceColumn: TargetStartDateTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column StagingRecordsToBeProcessedCount
+		dataType: int64
+		formatString: 0
+		lineageTag: 245de457-bf06-46b4-bbe7-139cb5d15725
+		sourceLineageTag: StagingRecordsToBeProcessedCount
+		summarizeBy: sum
+		sourceColumn: StagingRecordsToBeProcessedCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column StagingStartDateTime
+		dataType: string
+		lineageTag: f2a664e4-66b3-40af-afd1-914e15e148ef
+		sourceLineageTag: StagingStartDateTime
+		summarizeBy: none
+		sourceColumn: StagingStartDateTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column TargetRecordsUpdatedCount
+		dataType: int64
+		formatString: 0
+		lineageTag: 4f5dc402-7127-4c1b-a255-717b12f5a126
+		sourceLineageTag: TargetRecordsUpdatedCount
+		summarizeBy: sum
+		sourceColumn: TargetRecordsUpdatedCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumberOfRowsToSkip
+		dataType: int64
+		formatString: 0
+		lineageTag: 6ae9e077-bb3a-47b7-9ed3-1997ca4eb6b6
+		sourceLineageTag: NumberOfRowsToSkip
+		summarizeBy: sum
+		sourceColumn: NumberOfRowsToSkip
+
+		annotation SummarizationSetBy = Automatic
+
+	column TargetStatus
+		dataType: string
+		lineageTag: fdea0f6f-e551-464f-bd01-2eec77c13180
+		sourceLineageTag: TargetStatus
+		summarizeBy: none
+		sourceColumn: TargetStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column SequenceInLevel
+		dataType: int64
+		formatString: 0
+		lineageTag: 09a7bb31-11ad-4a6d-a0fc-c4349892d52d
+		sourceLineageTag: SequenceInLevel
+		summarizeBy: sum
+		sourceColumn: SequenceInLevel
+
+		annotation SummarizationSetBy = Automatic
+
+	column TargetRecordsCreatedCount
+		dataType: int64
+		formatString: 0
+		lineageTag: ccc8caa7-b5cf-4587-8579-575174ca655f
+		sourceLineageTag: TargetRecordsCreatedCount
+		summarizeBy: sum
+		sourceColumn: TargetRecordsCreatedCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column StagingEndDateTime
+		dataType: string
+		lineageTag: d80d9343-a6b2-4c0c-919b-8c791f3d183a
+		sourceLineageTag: StagingEndDateTime
+		summarizeBy: none
+		sourceColumn: StagingEndDateTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column ParallelTaskCount
+		dataType: int64
+		formatString: 0
+		lineageTag: 2d0b4ca9-89ab-4e94-8872-aa0cf1780a43
+		sourceLineageTag: ParallelTaskCount
+		summarizeBy: sum
+		sourceColumn: ParallelTaskCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column ExecuteTargetStep
+		dataType: string
+		lineageTag: a053a4f1-acee-4eeb-9c0c-04bfcd534012
+		sourceLineageTag: ExecuteTargetStep
+		summarizeBy: none
+		sourceColumn: ExecuteTargetStep
+
+		annotation SummarizationSetBy = Automatic
+
+	column ExcelSheetName
+		dataType: string
+		lineageTag: ac380002-deb5-4e07-a0d9-cc7fa982b0f7
+		sourceLineageTag: ExcelSheetName
+		summarizeBy: none
+		sourceColumn: ExcelSheetName
+
+		annotation SummarizationSetBy = Automatic
+
+	column StagingRecordsCreatedCount
+		dataType: int64
+		formatString: 0
+		lineageTag: ecb37426-2a22-4a87-874a-afdfe9b13bd8
+		sourceLineageTag: StagingRecordsCreatedCount
+		summarizeBy: sum
+		sourceColumn: StagingRecordsCreatedCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column TargetEndDateTime
+		dataType: string
+		lineageTag: 94225a6d-9b2b-4d4a-9beb-1de141544a98
+		sourceLineageTag: TargetEndDateTime
+		summarizeBy: none
+		sourceColumn: TargetEndDateTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column IgnoreError
+		dataType: string
+		lineageTag: 91bb6e4e-4940-4196-a3ca-e03a5d4bc1cb
+		sourceLineageTag: IgnoreError
+		summarizeBy: none
+		sourceColumn: IgnoreError
+
+		annotation SummarizationSetBy = Automatic
+
+	column ExecutionUnit
+		dataType: int64
+		formatString: 0
+		lineageTag: ec812399-44a6-4595-af18-a25d796c206a
+		sourceLineageTag: ExecutionUnit
+		summarizeBy: sum
+		sourceColumn: ExecutionUnit
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreateErrorFile
+		dataType: string
+		lineageTag: a48dc172-a720-4942-a7f9-9d1cfe65fdcf
+		sourceLineageTag: CreateErrorFile
+		summarizeBy: none
+		sourceColumn: CreateErrorFile
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstRowIsHeader
+		dataType: string
+		lineageTag: 881ff643-fcca-4fad-a6c8-e066f928020f
+		sourceLineageTag: FirstRowIsHeader
+		summarizeBy: none
+		sourceColumn: FirstRowIsHeader
+
+		annotation SummarizationSetBy = Automatic
+
+	column SourceFormat
+		dataType: string
+		lineageTag: 458fd7a1-3c9b-441b-b30f-0b38caade90e
+		sourceLineageTag: SourceFormat
+		summarizeBy: none
+		sourceColumn: SourceFormat
+
+		annotation SummarizationSetBy = Automatic
+
+	column SequenceNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: f72cbdf8-6fed-43d3-a71e-7ce84be28c5a
+		sourceLineageTag: SequenceNumber
+		summarizeBy: sum
+		sourceColumn: SequenceNumber
+
+		annotation SummarizationSetBy = Automatic
+
+	column FailLevelOnError
+		dataType: string
+		lineageTag: 0188f71b-37a0-406f-9f2e-0599eb16f35d
+		sourceLineageTag: FailLevelOnError
+		summarizeBy: none
+		sourceColumn: FailLevelOnError
+
+		annotation SummarizationSetBy = Automatic
+
+	partition executionjobdetails = entity
+		mode: directLake
+		source
+			entityName: executionjobdetails
+			expressionSource: 'DirectLake - bronze'
+

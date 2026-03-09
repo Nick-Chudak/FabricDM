@@ -1,0 +1,75 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "99c23440-1bc2-994d-435c-6c9c594ef080",
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "parameters": {
+            "dm_cycle": {
+              "value": {
+                "value": "@pipeline().parameters.dm_cycle",
+                "type": "Expression"
+              },
+              "type": "int"
+            },
+            "entity_name": {
+              "value": {
+                "value": "@pipeline().parameters.entity_name",
+                "type": "Expression"
+              },
+              "type": "string"
+            },
+            "files_to_ingest": {
+              "value": {
+                "value": "@pipeline().parameters.files_to_ingest",
+                "type": "Expression"
+              },
+              "type": "string"
+            }
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Ingest from SIS Tenant",
+        "dependsOn": []
+      },
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "594ef080-6c9c-435c-994d-1bc299c23440",
+          "workspaceId": "27e9c377-c28b-475c-b484-fb4f52ba54d1"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Ingest from Client Tenant",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": []
+      }
+    ],
+    "parameters": {
+      "dm_cycle": {
+        "type": "string",
+        "defaultValue": "0"
+      },
+      "entity_name": {
+        "type": "string"
+      },
+      "files_to_ingest": {
+        "type": "string"
+      }
+    }
+  }
+}
